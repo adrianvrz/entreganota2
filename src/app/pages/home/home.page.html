@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Mantenedro Personajes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines = "full">
+    <form [formGroup]="mainForm" (ngSubmit)="storageData()">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Estado</ion-label>
+        <ion-input formControlName="estado" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Especie</ion-label>
+        <ion-input formControlName="especie" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Genero</ion-label>
+        <ion-input formControlName="genero" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Ubicacion</ion-label>
+        <ion-input formControlName="ubicacion" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Episodio</ion-label>
+        <ion-input formControlName="episodio" type="text" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button Type="submit" color="primary" shape="full" expand="block" >
+            Agregar Personajes
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <h4>Personajes</h4>
+    </ion-list-header>
+
+    <ion-item lines="inset" *ngFor="let personaje of Data">
+      <ion-label>
+        <h5>{{ personaje.nombre }} {{ personaje.apellido }}</h5>
+        <p>{{ personaje.estado }}</p>
+        <p>{{ personaje.especie }}</p>
+        <p>{{ personaje.genero }}</p>
+        <p>{{ personaje.ubicacion }}</p>
+        <p>{{ personaje.episodio }}</p>
+    
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-icon name="create" style="zoom: 2.0;" [routerLink]="['/detalle-personaje/',personaje.id]"></ion-icon>
+        <ion-icon name="trash" style="zoom: 2.0;" (click)="deletePersonaje(personaje.id)"></ion-icon>
+      </div>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

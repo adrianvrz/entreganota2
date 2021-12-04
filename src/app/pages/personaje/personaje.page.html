@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-buttons>
+      <ion-back-button></ion-back-button>>
+    </ion-back-buttons>
+    <ion-title>Modificar Personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="editForm" (ngSubmit)="updatePersonaje()">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido" type="text" required></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="floating">Estado</ion-label>
+        <ion-input formControlName="estado" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Especie</ion-label>
+        <ion-input formControlName="especie" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Genero</ion-label>
+        <ion-input formControlName="genero" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Ubicacion</ion-label>
+        <ion-input formControlName="ubicacion" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Episodio</ion-label>
+        <ion-input formControlName="episodio" type="text" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">
+            Modificar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
